@@ -1,0 +1,33 @@
+@import '../../styles/global.scss';
+
+.footer {
+    padding: 20px;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_home {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    &__span {
+        margin-left: 12px;
+        font-weight: 600;
+        font-size: 22px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.footer_copyright {
+    color: rgba(255, 255, 255, 0.511);
+    font-size: 14px;
+    text-decoration: none;
+    &:hover {
+        color: white;
+    }
+}

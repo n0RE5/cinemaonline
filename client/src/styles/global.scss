@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+/* variables */
+
+$main: #0095ff;
+$main_hover: #037fd8;
+$dark: #444;
+$light_dark: #888;
+
+/* z-index levels */
+$z-1: 1; // default
+$z-2: 2; // first level
+$z-3: 3; // second level
+$z-4: 4; // third level (maybe i need this)
+$z-5: 5; // modals
+$z-6: 6; // maybe i'll have to over modals
+$z-7: 10; // absolute level
+
+
+/* media queries */
+
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+
+/* global classes */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #111;
+}
+
+.App {
+    background-color: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.App_w {
+    background-color: white;
+    max-width: 1100px;
+}
+
+.content {
+    padding: 20px;
+}

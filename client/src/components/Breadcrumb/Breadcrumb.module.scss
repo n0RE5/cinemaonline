@@ -1,0 +1,21 @@
+@import '../../styles/global.scss';
+
+.breadcrumb {
+    font-size: 12px;
+    margin: -10px 0 10px;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &__text {
+        color: $dark;
+    }
+    &__link {
+        text-decoration: none;
+        color: $dark;
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

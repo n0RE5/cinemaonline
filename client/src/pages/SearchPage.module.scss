@@ -1,0 +1,28 @@
+@import '../styles/global.scss';
+
+.searchpage_header {
+    margin-bottom: 30px;
+}
+
+.searchpage_main {
+    &__title {
+        font-size: 20px;
+        margin-bottom: 32px;
+        color: $dark;
+    }
+}
+
+.searchpage_yellowbox {
+    padding: 10px 20px;
+    background-color: #fce5ba;;
+    &__title {
+        font-size: 14px;
+        color: #a76846;
+        font-weight: 500;
+    }
+
+    &__query {
+        font-size: 14px;
+        color: #a76846;
+    }
+}

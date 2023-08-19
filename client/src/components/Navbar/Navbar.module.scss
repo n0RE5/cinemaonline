@@ -1,0 +1,69 @@
+@import '../../styles/global.scss';
+
+.navbar {
+    height: 70px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.15);
+}
+
+.navbar_links {
+    display: flex;
+    list-style-type: none;
+    li {
+        height: 70px;
+        line-height: 70px;
+        margin: 0 10px;
+        a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 700;
+            &:hover {
+                transition: all 0.15s ease-in;
+                color: $main;
+            }
+        }
+        &:hover {
+            box-shadow: inset 0 -3px $main;
+        }
+    }
+}
+
+.navbar_home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    &__span {
+        margin-left: 12px;
+        font-weight: 600;
+        font-size: 22px;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.navbar_burger {
+    display: none;
+}
+
+.navbar_search {
+    display: flex;
+    flex: 0 1 350px;
+}
+
+@media (max-width: $lg) {
+    .navbar_links {
+        display: none;
+    }
+    .navbar_search {
+        display: none;
+    }
+    .navbar_burger {
+        display: flex;  
+    }
+}

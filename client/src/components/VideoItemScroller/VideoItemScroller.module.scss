@@ -1,0 +1,30 @@
+@import '../../styles/global.scss';
+
+.videoscroller {
+    &__title {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        height: 40px;
+        background-color: $main;
+        padding: 0 20px;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        &:hover {
+            cursor: pointer;
+            background-color: $main_hover;
+        }
+    }
+    &__scroller {
+        margin-right: 20px;
+    }
+}
+
+.arrow {
+    margin-top: 4px;
+    margin-left: 10px;
+}

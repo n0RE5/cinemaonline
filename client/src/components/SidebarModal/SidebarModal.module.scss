@@ -1,0 +1,57 @@
+@import '../../styles/global.scss';
+
+.sidebar {
+    position: fixed;
+    background-color: rgba(0,0,0, 0.5);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: $z-5;
+}
+
+.sidebar_w {
+    padding: 10px;
+    height: 100%;
+    background-color: white;
+    width: 280px;
+    padding: 10px;
+}
+
+.sidebar_searchbar {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.sidebar_logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    &__span {
+        margin-left: 12px;
+        font-weight: 600;
+        font-size: 22px;
+    }
+}
+
+.sidebar_links {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    li {
+        height: 70px;
+        line-height: 70px;
+        a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 700;
+            &:hover {
+                transition: all 0.15s ease-in;
+                color: $main;
+            }
+        }
+        &:hover {
+            box-shadow: inset 0 -3px $main;
+        }
+    }
+}

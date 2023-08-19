@@ -1,0 +1,53 @@
+@import '../../styles/global.scss';
+
+.description {
+
+}
+
+.none {
+    display: none;
+}
+
+.description_main {
+    transition: all .15s ease-in;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    color: $light_dark;
+    font-size: 13px;
+    &__full {
+        color: $light_dark;
+        font-size: 13px;
+        transition: all .15s ease-in;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+    }
+    &__overlay {
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            pointer-events: none;
+            background: linear-gradient(to bottom,rgba(255,255,255,0) 0%,#fff 100%);
+        }
+    }
+}
+
+.description_button {
+    border: 1px solid #aaa;
+    color: $dark;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 0 1px #ccc, 2px 3px 3px 0 rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 8px 10px;
+    font-weight: 600;
+    border-radius: 3px;
+}

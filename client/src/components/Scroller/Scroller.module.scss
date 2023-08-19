@@ -1,0 +1,12 @@
+@import '../../styles//global.scss';
+
+.scroller {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+}
