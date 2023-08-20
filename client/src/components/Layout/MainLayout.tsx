@@ -17,8 +17,10 @@ interface LayoutProps {
  
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [videos, setVideos] = useState<IVideo[]>([])
+    const [limit, setLimit] = useState<number>(15)
+    
     const [fetchVideos] = useFetching(async () => {
-        const response = await getNewestList(15)
+        const response = await getNewestList(limit)
         setVideos(response)
     })
 
