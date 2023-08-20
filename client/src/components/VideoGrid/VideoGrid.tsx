@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './VideoGrid.module.scss'; 
 import { IVideo } from '../../types/Interfaces';
+import VideoGridItem from '../VideoGridItem/VideoGridItem';
 
 interface VideoGridProps {
     videos: IVideo[]
@@ -8,8 +9,10 @@ interface VideoGridProps {
  
 const VideoGrid: React.FC<VideoGridProps> = ({ videos }) => {
     return (
-        <div>
-            
+        <div className={classes.videogrid}>
+            {videos.map((video, index) =>
+                <VideoGridItem video={video} key={index} />
+            )}
         </div>
     );
 }

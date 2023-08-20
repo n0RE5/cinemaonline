@@ -1,0 +1,92 @@
+@import '../../styles/global.scss';
+
+.videogriditem {
+    position: relative;
+    transition: all 0.15s ease-in;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    &::before {
+        transition: all 0.1s ease-in;
+        content: '';
+        position: absolute;
+        z-index: $z-2;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50%;
+        background: linear-gradient(to bottom,transparent 0%,black 100%);
+        opacity: 1;
+    }
+    &__title {
+        font-size: 13px;
+        transition: all 0.1s ease-in;
+        z-index: $z-3;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 20px;
+        color: #fafafb;
+        font-weight: 500;
+        word-wrap: break-word;
+    }
+}
+
+.videogriditem_w {
+    position: relative;
+    width: 16.66%;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.videogriditem_image {
+    padding-top: 145%;
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        top: 0;
+        object-fit: cover;
+        left: 0;
+    }
+}
+
+.videogriditem_fade {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: $z-3;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .15s ease-in;
+    &:hover {
+        background-color: rgba(0, 0, 0, .4);
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 320px) and (max-width: $md) {
+    .videogriditem_w {
+        width: 50%;
+    }
+}
+
+@media (min-width: $md) and (max-width: $lg) {
+    .videogriditem_w {
+        width: 25%;
+    }
+}
+
+@media (min-width: $lg) and (max-width: $xl) {
+    .videogriditem_w {
+        width: 25%;
+    }
+}
