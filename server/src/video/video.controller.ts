@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post, Query, UploadedFiles, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Query, Response, UploadedFiles, UseInterceptors } from "@nestjs/common";
 import { CreateVideoDto } from "./dto/create-video.dto";
+import { Response as Res } from 'express'
 import { VideoService } from "./video.service";
 import { FilesInterceptor } from "@nestjs/platform-express";
 
@@ -29,12 +30,22 @@ export class VideoController {
         return this.videoService.getNewestList(limit)
     }
 
+    @Get('search/:searchQuery')
+    search(@Param('searchQuery') searchQuery: string, 
+           @Query('limit') limit: number, 
+           @Query('page') page: number,
+           @Response() res: Res
+    ) {
+        
+        return this.videoService.searchVideos(searchQuery, limit, page, res)
+    }
+
     @Get('list/type/:type')
     get(@Query('limit') limit: number, @Param('type') type: string) {
         return this.videoService.getTypeList(type, limit)
     }
 
-    @Get('list/type/:type')
+    @Get('type/:type')
     getVideosByType(@Query('limit') limit: number, @Query('page') page: number, @Param('type') type: string) {
         return this.videoService.getVideosByType(type, limit, page)
     }

@@ -4,6 +4,7 @@ import { Video } from "./video.model";
 import { FilesService } from "src/files/files.service";
 import { CreateVideoDto } from "./dto/create-video.dto";
 import * as uuid from 'uuid'
+import {Response as Res} from 'express'
 import { Op } from "sequelize";
 
 @Injectable()
@@ -36,14 +37,19 @@ export class VideoService {
         return video
     }
 
-    async searchVideos(searchQuery: string, page: number, limit: number) {
+    async searchVideos(searchQuery: string, limit: number, page: number, res: Res) {
         let offset = page * limit - limit
         const videos = await this.videoRepository.findAll({
-                where: {title: { [Op.like]: '%' + searchQuery + '%' }},
-                limit,
-                offset,
-            })
-        return videos
+            where: {title: { [Op.like]: '%' + searchQuery + '%' }},
+            limit,
+            offset,
+        })
+        
+        const totalVideos = await this.videoRepository.count({
+            where: {title: { [Op.like]: '%' + searchQuery + '%' }}
+        })
+
+        return res.set('x-total-count', totalVideos.toString()).json(videos)
     }
 
     async getNewestList(limit: number) {
