@@ -4,8 +4,8 @@ import { publicRoutes } from "../Routes"
 const AppRouter = () => {
     return (
         <Routes>
-            {publicRoutes.map(({path, element}) =>
-                <Route path={path} element={element} />
+            {publicRoutes.map(({path, element}, index) =>
+                <Route key={index} path={path} element={element} />
             )}
         </Routes>
     )
