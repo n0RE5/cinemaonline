@@ -12,6 +12,10 @@
     }
 }
 
+.searchpage_searchbar {
+    margin-bottom: 20px;
+}
+
 .searchpage_yellowbox {
     padding: 10px 20px;
     background-color: #fce5ba;;
@@ -25,4 +29,14 @@
         font-size: 14px;
         color: #a76846;
     }
+}
+
+.searchpage_videogrid {
+    margin-top: 30px;
+    height: 100%;
+}
+
+.searchpage_notfound {
+    margin: 0 5px;
+    margin-bottom: 10px;
 }
