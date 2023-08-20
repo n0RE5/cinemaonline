@@ -1,27 +1,19 @@
 @import '../../styles/global.scss';
 
-.description {
-
-}
-
 .none {
     display: none;
 }
 
 .description_main {
-    transition: all .15s ease-in;
-    height: 150px;
+    transition: all .6s ease-in-out;
+    min-height: 150px;
+    max-height: 150px;
     overflow: hidden;
     position: relative;
     color: $light_dark;
     font-size: 13px;
     &__full {
-        color: $light_dark;
-        font-size: 13px;
-        transition: all .15s ease-in;
-        height: auto;
-        overflow: hidden;
-        position: relative;
+        max-height: 700px;
     }
     &__overlay {
         &::before {

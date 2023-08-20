@@ -10,7 +10,7 @@ const VideoDescription: React.FC<VideoDescriptionProps> = ({ children }) => {
 
     return (
         <div className={classes.description}>
-            <div className={isActive ? classes.description_main__full : classes.description_main}>
+            <div className={isActive ? [classes.description_main, classes.description_main__full].join(' ') : classes.description_main}>
                 {children}
                 <div className={isActive ? classes.none : classes.description_main__overlay}/>
             </div>
