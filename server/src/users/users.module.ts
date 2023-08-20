@@ -8,18 +8,15 @@ import { UsersController } from './users.controller';
 import { User } from './users.model';
 import { UsersService } from './users.service';
 import { FilesModule } from 'src/files/files.module';
-import { Basket } from 'src/basket/basket.model';
-import { BasketModule } from 'src/basket/basket.module';
 
 @Module({
   controllers: [UsersController],
   providers: [UsersService],
   imports: [
     forwardRef(() => AuthModule),
-    SequelizeModule.forFeature([User, Role, UserRoles, Basket]),
+    SequelizeModule.forFeature([User, Role, UserRoles]),
     RolesModule,
     FilesModule,
-    BasketModule,
   ],
   exports: [
     UsersService,

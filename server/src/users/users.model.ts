@@ -1,7 +1,6 @@
 import { BelongsToMany, Column, DataType, HasMany, HasOne, Model, Table } from "sequelize-typescript";
 import { UserRoles } from "src/roles/user-roles.model";
 import { Role } from "src/roles/roles.model";
-import { Basket } from "src/basket/basket.model";
 
 interface UserCreationAttrs {
     email: string;
@@ -28,7 +27,4 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]
-
-    @HasOne(() => Basket)
-    basketId: number
 }

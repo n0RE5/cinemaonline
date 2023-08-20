@@ -1,7 +1,5 @@
 import { NestFactory } from "@nestjs/core"
-import { DocumentBuilder } from "@nestjs/swagger"
 import { AppModule } from "./app.module"
-import { raw } from "express"
 
 const start = async () => {
     const PORT = process.env.PORT || 5000

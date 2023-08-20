@@ -6,7 +6,6 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './users.model';
 import { Sequelize } from 'sequelize';
 import { FilesService } from 'src/files/files.service';
-import { BasketService } from 'src/basket/basket.service';
 
 @Injectable()
 export class UsersService {
@@ -14,13 +13,11 @@ export class UsersService {
     constructor(@InjectModel(User) private userRepository: typeof User, 
                                    private roleService: RolesService, 
                                    private fileService: FilesService,
-                                   private basketService: BasketService
     ) {}
 
     async createUser(dto: CreateUserDto) {
          const user = await this.userRepository.create(dto)
          const role = await this.roleService.getRoleOrCreate("USER")
-         await this.basketService.createBasket(user.id)
          await user.$set('roles', [role.id])
          user.roles = [role]
          return user
