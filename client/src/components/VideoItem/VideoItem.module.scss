@@ -20,6 +20,7 @@
         opacity: 1;
     }
     &__title {
+        font-size: 13px;
         transition: all 0.1s ease-in;
         z-index: $z-3;
         position: absolute;
