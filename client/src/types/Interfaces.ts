@@ -12,23 +12,18 @@ const IVideoType = {
 
 export type IVideoType = typeof IVideoType[keyof typeof IVideoType]
 
-const IVideoGenre = {
-    horror: "Ужасы"
-} as const
-
-export type IVideoGenre = typeof IVideoGenre[keyof typeof IVideoGenre]
-
 export interface IVideo {
     href: string
     img: string
     video: string
     title: string
     country: string
-    genre: IVideoGenre
+    genre: string
     year: number
     type: IVideoType
     translate: string
     quality: string
+    description: string
     director: string
 }
 
