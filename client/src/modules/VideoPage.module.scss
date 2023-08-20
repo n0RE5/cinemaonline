@@ -1,10 +1,7 @@
 @import '../styles/global.scss';
 
-.videopage_header {
-    margin-bottom: 30px;
-}
-
 .videopage_main {
+    position: relative;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,0.15);
     margin: 0 -20px;
     padding: 20px;
@@ -15,8 +12,9 @@
         box-shadow: 0 0 0 1px #ccc, 2px 3px 3px 0 rgba(0,0,0,0.1);
         width: 200px;
         height: 300px;
+        flex: 1 0 200px;
         img {
-            object-fit: contain;
+            object-fit: cover;
             width: 100%;
             height: 100%;
         }
@@ -37,7 +35,7 @@
     margin: 20px -20px -10px;
 }
 
-.videpage_player {
+.videopage_player {
     margin: 0 -20px;
 }
 
@@ -82,11 +80,13 @@
 @media (max-width: $lg) {
     .videopage_main__banner {
         margin-bottom: 15px;
+        flex: 1 0 300px;
     }
     .videopage_main_info {
         flex-direction: column;
     }
     .main_stats {
         display: block;
+        width: 100%;
     }
 }
