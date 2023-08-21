@@ -1,0 +1,28 @@
+@import '../styles/global.scss';
+
+.mainpage_button {
+    margin: 0 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: all .15s ease-in;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 40px;
+    background-color: $main;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    &:hover {
+        cursor: pointer;
+        background-color: $main_hover;
+    }
+}
+
+.arrow {
+    margin-top: 4px;
+    margin-left: 10px;
+}
