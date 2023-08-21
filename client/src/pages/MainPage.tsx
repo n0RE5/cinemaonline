@@ -11,7 +11,7 @@ import Pagination from '../components/Pagination/Pagination';
 const MainPage = () => {
     const [videos, setVideos] = useState<IVideo[]>([])
     const [totalCount, setTotalCount] = useState<number>(0)
-    const {totalPages, page, setPage, limit, pagesArray} = usePagination(totalCount, 30)
+    const {totalPages, page, setPage, limit, pagesArray} = usePagination(totalCount, 18)
 
     const [search] = useFetching(async () => {
         const response = await getAll(limit, page)
