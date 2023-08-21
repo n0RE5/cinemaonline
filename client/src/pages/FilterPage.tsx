@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
-import classes from './FilterPage.module.scss'; 
-import VideoFilter from '../components/VideoFilter/VideoFilter';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useFetching } from '../hooks/useFetching';
+import { searchVideosByType } from '../api/videoAPI';
+import { usePagination } from '../hooks/usePagination';
+import { IVideo } from '../types/Interfaces';
+import FilterPageModule from '../modules/FilterPageModule';
+import Pagination from '../components/Pagination/Pagination';
 
 const FilterPage = () => {
-    const [active, setActive] = useState<boolean>(false)
+    const [params] = useSearchParams()
+    const [videos, setVideos] = useState<IVideo[]>([])
+    const [totalCount, setTotalCount] = useState<number>(0)
+    const {totalPages, page, setPage, limit, pagesArray} = usePagination(totalCount, 24)
+    const type = params.get('type') || ''
+    
+    const [search, isLoading] = useFetching(async() => {
+        const response = await searchVideosByType(type, limit, page)
+        setVideos(response.data)
+        const totalVideoCount = response.headers['x-total-count']
+        setTotalCount(totalVideoCount)
+    })
+
+    useEffect(() => {
+        search()
+    }, [type, page])
+
     return (
-        <div className='content'>
-            <VideoFilter active={active} setActive={setActive} />
-        </div>
+        <>
+            <FilterPageModule videos={videos} />
+            <Pagination page={page} setPage={setPage} totalPages={totalPages} pagesArray={pagesArray} />
+        </>
     );
 }
  
