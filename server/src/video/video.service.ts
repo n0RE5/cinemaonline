@@ -65,14 +65,21 @@ export class VideoService {
             where: {type},
             limit,
         })
+        return videos
     }
 
-    async getVideosByType(type: string, limit: number, page: number) {
+    async searchVideosByType(type: string, limit: number, page: number, res: Res) {
         let offset = page * limit - limit
         const videos = await this.videoRepository.findAll({
             where: {type},
             limit,
             offset,
         })
+
+        const totalVideos = await this.videoRepository.count({
+            where: {type}
+        })
+
+        return res.set('x-total-count', totalVideos.toString()).json(videos)
     }
 }

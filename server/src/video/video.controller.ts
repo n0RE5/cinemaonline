@@ -45,8 +45,12 @@ export class VideoController {
         return this.videoService.getTypeList(type, limit)
     }
 
-    @Get('type/:type')
-    getVideosByType(@Query('limit') limit: number, @Query('page') page: number, @Param('type') type: string) {
-        return this.videoService.getVideosByType(type, limit, page)
+    @Get('search/type/:type')
+    searchVideosByType(@Query('limit') limit: number, 
+                    @Query('page') page: number, 
+                    @Param('type') type: string,
+                    @Response() res: Res
+    ) {
+        return this.videoService.searchVideosByType(type, limit, page, res)
     }
 }
