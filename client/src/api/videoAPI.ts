@@ -6,6 +6,11 @@ export const getVideoByLink = async (href: string): Promise<IVideo> => {
     return response.data
 }
 
+export const getAll = async (limit: number, page: number) => {
+    const response = await $api.get(`video?limit=${limit}&page=${page}`)
+    return response
+}
+
 export const getNewestList = async (limit: number): Promise<IVideo[]> => {
     const response = await $api.get(`video/list/newest?limit=${limit}`)
     return response.data
