@@ -7,7 +7,8 @@ export interface IVideoItem {
 const IVideoType = {
     film: "Фильм",
     series: "Сериал",
-    anime: "Аниме"
+    anime: "Аниме",
+    cartoon: "Мультфильм"
 } as const
 
 export type IVideoType = typeof IVideoType[keyof typeof IVideoType]

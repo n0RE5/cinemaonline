@@ -22,6 +22,10 @@ const Sidebar = () => {
         {
             title: 'АНИМЕ',
             href: FilterRoute + '?type=Аниме'
+        },
+        {
+            title: 'МУЛЬТФИЛЬМЫ',
+            href: FilterRoute + '?type=Мультфильм'
         }
     ])  
 
