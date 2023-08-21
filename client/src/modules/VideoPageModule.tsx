@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import classes from './VideoPage.module.scss';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import VideoDescription from '../components/VideoDescription/VideoDescription';
@@ -6,6 +6,7 @@ import Videoplayer from '../components/Videoplayer/Videoplayer';
 import { IBreadcrumb, IVideo } from '../types/Interfaces';
 import { API_URL } from '../api';
 import Loader from '../components/Loader/Loader';
+import { FilterRoute } from '../tools/Consts';
 
 interface VideoPageModuleProps {
     video: IVideo
@@ -13,11 +14,15 @@ interface VideoPageModuleProps {
 }
  
 const VideoPageModule: React.FC<VideoPageModuleProps> = ({ video, isVideoLoading }) => {
-    const [breadcrumbs] = useState<IBreadcrumb[]>([
+    const breadcrumbs = useMemo<IBreadcrumb[]>(() => [
         {
-            title: video.type
+            title: video.type,
+            href: FilterRoute + `?type=${video.type}`
+        },
+        {
+            title: video.title
         }
-    ])
+    ], [video])
 
     return (
         <div className={classes.videopage}>
