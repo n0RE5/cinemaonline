@@ -15,3 +15,8 @@ export const searchVideos = async(searchQuery: string, limit: number, page: numb
     const response = await $api.get(`video/search/${searchQuery}?limit=${limit}&page=${page}`)
     return response
 }
+
+export const searchVideosByType = async(type: string, limit: number, page: number) => {
+    const response = await $api.get(`video/search/type/${type}?limit=${limit}&page=${page}`)
+    return response 
+}
