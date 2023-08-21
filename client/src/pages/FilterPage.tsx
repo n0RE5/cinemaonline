@@ -11,7 +11,7 @@ const FilterPage = () => {
     const [params] = useSearchParams()
     const [videos, setVideos] = useState<IVideo[]>([])
     const [totalCount, setTotalCount] = useState<number>(0)
-    const {totalPages, page, setPage, limit, pagesArray} = usePagination(totalCount, 24)
+    const {totalPages, page, setPage, limit, pagesArray} = usePagination(totalCount, 18)
     const type = params.get('type') || ''
     
     const [search, isLoading] = useFetching(async() => {
