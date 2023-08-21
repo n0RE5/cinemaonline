@@ -6,6 +6,7 @@ import { useFetching } from '../hooks/useFetching';
 import { searchVideos } from '../api/videoAPI';
 import Pagination from '../components/Pagination/Pagination';
 import { usePagination } from '../hooks/usePagination';
+import PageWrapper from '../components/Layout/PageWrapper';
  
 const SearchPage = () => {
     const [params] = useSearchParams()
@@ -26,10 +27,10 @@ const SearchPage = () => {
     }, [searchQuery, page])
 
     return (
-        <>
+        <PageWrapper>
             <SearchPageModule videos={videos} />
             <Pagination totalPages={totalPages} page={page} pagesArray={pagesArray} setPage={setPage} />
-        </>
+        </PageWrapper>
     );
 }
  

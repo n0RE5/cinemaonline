@@ -6,6 +6,7 @@ import { ErrorRoute } from '../tools/Consts';
 import VideoPageModule from '../modules/VideoPageModule';
 import { IVideo } from '../types/Interfaces';
 import { videoPlaceholder } from '../tools/Placeholder';
+import PageWrapper from '../components/Layout/PageWrapper';
 
 const VideoPage = () => {
     const navigate = useNavigate()
@@ -29,9 +30,9 @@ const VideoPage = () => {
     }, [isFetching])
 
     return (
-        <>
+        <PageWrapper>
             <VideoPageModule video={video} isVideoLoading={isFetching}/>
-        </>
+        </PageWrapper>
     );
 }
  
