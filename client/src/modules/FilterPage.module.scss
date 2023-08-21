@@ -1,8 +1,10 @@
 @import '../styles/global.scss';
 
 .filterpage_type {
+    margin: 0 5px;
     display: inline-flex;
     justify-content: center;
+    transition: all .15s ease-in;
     align-items: center;
     margin-bottom: 10px;
     height: 40px;
@@ -14,9 +16,14 @@
     text-decoration: none;
     border-radius: 3px;
     margin-bottom: 10px;
+    &:hover {
+        cursor: pointer;
+        background-color: $main_hover;
+    }
 }
 
 .filterpage_breadcrumbs {
+    margin: 0 5px;
     margin-top: 10px;
 }
 

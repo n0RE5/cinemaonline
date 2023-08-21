@@ -9,9 +9,10 @@ import { BiSolidRightArrow } from 'react-icons/bi';
 
 interface FilterPageModuleProps {
     videos: IVideo[]
+    isLoading: boolean
 }
  
-const FilterPageModule: React.FC<FilterPageModuleProps> = ({ videos }) => {
+const FilterPageModule: React.FC<FilterPageModuleProps> = ({ videos, isLoading }) => {
     const [params] = useSearchParams()
     const type = params.get('type') || ''
     const breadcrumbs = useMemo<IBreadcrumb[]>(() => [
@@ -37,9 +38,9 @@ const FilterPageModule: React.FC<FilterPageModuleProps> = ({ videos }) => {
             <div className={classes.filterpage_breadcrumbs}>
                 <Breadcrumb breadcrumbs={breadcrumbs} />
             </div>
-            {videos.length 
-                ? <VideoGrid videos={videos} />
-                : <div>Возникла непредвиденная ошибка. Мы будем стараться исправить её как можно быстрее!</div>
+            <VideoGrid videos={videos} />
+            {!videos.length && !isLoading &&
+                <div>Возникла непредвиденная ошибка. Мы будем стараться исправить её как можно быстрее!</div>
             }
         </div>
     );
