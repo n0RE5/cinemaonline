@@ -15,6 +15,14 @@ export class VideoController {
         return this.videoService.create(dto, files)
     }
 
+    @Get('')
+    getAll(@Query('limit') limit: number, 
+           @Query('page') page: number, 
+           @Response() res: Res
+    ) {
+        return this.videoService.getAll(limit, page, res)
+    }
+
     @Get('id/:id')
     getById(@Param('id') id: number) {
         return this.videoService.getVideoById(id)
@@ -53,4 +61,5 @@ export class VideoController {
     ) {
         return this.videoService.searchVideosByType(type, limit, page, res)
     }
+
 }

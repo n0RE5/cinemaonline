@@ -23,6 +23,18 @@ export class VideoService {
         return video
     }
 
+    async getAll(limit: number, page: number, res: Res) {
+        const offset = limit * page - limit
+        const videos = await this.videoRepository.findAll({
+            offset,
+            limit
+        })
+
+        const totalVideos = await this.videoRepository.count()
+
+        return res.set('x-total-count', totalVideos.toString()).json(videos)
+    }
+
     async getVideoById(id: number) {
         const video = await this.videoRepository.findOne({
             where: {id}
