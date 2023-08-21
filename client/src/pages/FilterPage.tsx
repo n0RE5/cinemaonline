@@ -27,7 +27,7 @@ const FilterPage = () => {
 
     return (
         <>
-            <FilterPageModule videos={videos} />
+            <FilterPageModule isLoading={isLoading} videos={videos} />
             <Pagination page={page} setPage={setPage} totalPages={totalPages} pagesArray={pagesArray} />
         </>
     );
